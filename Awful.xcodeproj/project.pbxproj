@@ -410,6 +410,8 @@
 		5040D23E14D0BC5D009E73F7 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 5040D23C14D0BC59009E73F7 /* back.png */; };
 		5040D23F14D0BC5D009E73F7 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5040D23D14D0BC5B009E73F7 /* back@2x.png */; };
 		50574ECD14CA187D00FD1F92 /* dotdotdot-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 50574ECC14CA187D00FD1F92 /* dotdotdot-clear.png */; };
+		5077DFE81553290400F0B03B /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5077DFE71553290400F0B03B /* SFHFKeychainUtils.m */; };
+		5077DFEB15532F8A00F0B03B /* AwfulTagLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5077DFEA15532F8A00F0B03B /* AwfulTagLoginViewController.m */; };
 		50A8B96D1541D57E0065F3D9 /* MasterViewButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 50A8B9681541D57E0065F3D9 /* MasterViewButton.png */; };
 		50A8B96E1541D57E0065F3D9 /* multiPageMovement.png in Resources */ = {isa = PBXBuildFile; fileRef = 50A8B9691541D57E0065F3D9 /* multiPageMovement.png */; };
 		50A8B96F1541D57E0065F3D9 /* ReplyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 50A8B96A1541D57E0065F3D9 /* ReplyButton.png */; };
@@ -932,6 +934,10 @@
 		5040D23C14D0BC59009E73F7 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = images/back.png; sourceTree = "<group>"; };
 		5040D23D14D0BC5B009E73F7 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back@2x.png"; path = "images/back@2x.png"; sourceTree = "<group>"; };
 		50574ECC14CA187D00FD1F92 /* dotdotdot-clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dotdotdot-clear.png"; path = "images/dotdotdot-clear.png"; sourceTree = "<group>"; };
+		5077DFE61553290400F0B03B /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFHFKeychainUtils.h; path = SFHFKeychainUtils/SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		5077DFE71553290400F0B03B /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFHFKeychainUtils.m; path = SFHFKeychainUtils/SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		5077DFE915532F8A00F0B03B /* AwfulTagLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwfulTagLoginViewController.h; sourceTree = "<group>"; };
+		5077DFEA15532F8A00F0B03B /* AwfulTagLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwfulTagLoginViewController.m; sourceTree = "<group>"; };
 		50A8B9681541D57E0065F3D9 /* MasterViewButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MasterViewButton.png; path = images/help/MasterViewButton.png; sourceTree = "<group>"; };
 		50A8B9691541D57E0065F3D9 /* multiPageMovement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = multiPageMovement.png; path = images/help/multiPageMovement.png; sourceTree = "<group>"; };
 		50A8B96A1541D57E0065F3D9 /* ReplyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ReplyButton.png; path = images/help/ReplyButton.png; sourceTree = "<group>"; };
@@ -1419,6 +1425,7 @@
 		1190F76913BE4ECB00B9D271 /* 3rd Party Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5077DFE4155328F100F0B03B /* SFHFKeychainUtils */,
 				11D470111547A97A004D800B /* TestFlightSDK1 */,
 				11FE9E22153CFC6F002EE2B5 /* MKNetworkKit */,
 				1190F76A13BE4ECB00B9D271 /* Appirater */,
@@ -1684,6 +1691,8 @@
 				11FDA295151018600014FDCD /* AwfulSettingsViewController.m */,
 				1C277CA31543554700CD2CCE /* AwfulSettingsChoiceViewController.h */,
 				1C277CA41543554700CD2CCE /* AwfulSettingsChoiceViewController.m */,
+				5077DFE915532F8A00F0B03B /* AwfulTagLoginViewController.h */,
+				5077DFEA15532F8A00F0B03B /* AwfulTagLoginViewController.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1817,6 +1826,15 @@
 				10D34FB6128F414E0026C7C2 /* libz.dylib */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5077DFE4155328F100F0B03B /* SFHFKeychainUtils */ = {
+			isa = PBXGroup;
+			children = (
+				5077DFE61553290400F0B03B /* SFHFKeychainUtils.h */,
+				5077DFE71553290400F0B03B /* SFHFKeychainUtils.m */,
+			);
+			name = SFHFKeychainUtils;
 			sourceTree = "<group>";
 		};
 		50A8B9671541D52D0065F3D9 /* help */ = {
@@ -2291,6 +2309,8 @@
 				1C277CA51543554700CD2CCE /* AwfulSettingsChoiceViewController.m in Sources */,
 				1CF2C5061543B51200E327F5 /* AwfulFavoritesViewController.m in Sources */,
 				1C7B87201544D83D00891D41 /* AwfulForumSection.m in Sources */,
+				5077DFE81553290400F0B03B /* SFHFKeychainUtils.m in Sources */,
+				5077DFEB15532F8A00F0B03B /* AwfulTagLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

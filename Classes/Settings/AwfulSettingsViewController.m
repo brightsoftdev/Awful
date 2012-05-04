@@ -1,10 +1,10 @@
-//
-//  AwfulSettingsViewController.m
-//  Awful
-//
-//  Created by Sean Berry on 3/1/12.
-//  Copyright (c) 2012 Regular Berry Software LLC. All rights reserved.
-//
+    //
+    //  AwfulSettingsViewController.m
+    //  Awful
+    //
+    //  Created by Sean Berry on 3/1/12.
+    //  Copyright (c) 2012 Regular Berry Software LLC. All rights reserved.
+    //
 
 #import "AwfulSettingsViewController.h"
 #import "AwfulSettings.h"
@@ -14,6 +14,7 @@
 #import "AwfulLoginController.h"
 #import "AwfulNetworkEngine.h"
 #import "AwfulSettingsChoiceViewController.h"
+#import "AwfulTagLoginViewController.h"
 
 @interface AwfulSettingsViewController ()
 
@@ -53,6 +54,23 @@
         AwfulSplitViewController *split = (AwfulSplitViewController *)self.splitViewController;
         [split.popoverController dismissPopoverAnimated:NO];
     }
+    else if ([[segue identifier] isEqualToString:@"TagLogin"]) {
+        AwfulTagLoginViewController *atl = (AwfulTagLoginViewController *) segue.destinationViewController;
+        
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSIndexPath *fudgedIndexPath = [self fudgedIndexPathForIndexPath:indexPath];
+        NSDictionary *setting = [self settingForIndexPath:fudgedIndexPath];
+        
+        NSString *login = [setting objectForKey:@"Login"];
+        atl.service = login;
+        
+        
+        NSString *key = [setting objectForKey:@"Key"];
+        id selectedValue = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+        atl.userName = selectedValue;
+
+    }
 }
 
 -(void)finishedRefreshing
@@ -89,7 +107,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
 {
     if (IsLoggedIn()) {
-        // dumb hack to put in dark theme at the last minute, iPhone only
+            // dumb hack to put in dark theme at the last minute, iPhone only
         if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             return self.sections.count - 2;
         }
@@ -108,10 +126,11 @@
 
 typedef enum SettingType
 {
-    ImmutableSetting,
-    OnOffSetting,
-    ChoiceSetting,
-    ButtonSetting,
+ImmutableSetting,
+OnOffSetting,
+ChoiceSetting,
+LoginSetting,
+ButtonSetting,
 } SettingType;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -119,7 +138,7 @@ typedef enum SettingType
 {
     indexPath = [self fudgedIndexPathForIndexPath:indexPath];
     
-    // Grab the cell we need.
+        // Grab the cell we need.
     
     NSDictionary *setting = [self settingForIndexPath:indexPath];
     SettingType settingType = ImmutableSetting;
@@ -127,6 +146,8 @@ typedef enum SettingType
         settingType = OnOffSetting;
     } else if ([setting objectForKey:@"Choices"]) {
         settingType = ChoiceSetting;
+    } else if ([setting objectForKey:@"Login"]) {
+        settingType = LoginSetting;
     } else if ([setting objectForKey:@"Action"]) {
         settingType = ButtonSetting;
     }
@@ -143,12 +164,12 @@ typedef enum SettingType
                                       reuseIdentifier:identifier];
     }
     
-    // Set it up as we like it.
+        // Set it up as we like it.
     
     cell.textLabel.text = [setting objectForKey:@"Title"];
     
     if (settingType == ImmutableSetting) {
-        // This only works because there's one immutable setting here.
+            // This only works because there's one immutable setting here.
         cell.detailTextLabel.text = self.user.userName;
     }
     
@@ -174,18 +195,28 @@ typedef enum SettingType
     
     if (settingType == ChoiceSetting) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        for (NSDictionary *choice in [setting objectForKey:@"Choices"]) {
-            if ([[choice objectForKey:@"Value"] isEqual:valueForSetting]) {
-                cell.detailTextLabel.text = [choice objectForKey:@"Title"];
-                break;
+        id choices = [setting objectForKey:@"Choices"];
+        if ([[choices class] isSubclassOfClass:[NSArray class]])
+        {
+            for (NSDictionary *choice in choices) {
+                if ([[choice objectForKey:@"Value"] isEqual:valueForSetting]) {
+                    cell.detailTextLabel.text = [choice objectForKey:@"Title"];
+                    break;
+                }
             }
+        
         }
+    } else if (settingType == LoginSetting) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        cell.detailTextLabel.text = valueForSetting;
+           
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
-    if (settingType == ChoiceSetting || settingType == ButtonSetting) {
-         cell.selectionStyle = UITableViewCellSelectionStyleBlue;   
+    if (settingType == ChoiceSetting || settingType == ButtonSetting || settingType == LoginSetting) {
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;   
     } else {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
@@ -212,7 +243,7 @@ typedef enum SettingType
 {
     NSIndexPath *fudgedIndexPath = [self fudgedIndexPathForIndexPath:indexPath];
     NSDictionary *setting = [self settingForIndexPath:fudgedIndexPath];
-    if ([setting objectForKey:@"Action"] || [setting objectForKey:@"Choices"]) {
+    if ([setting objectForKey:@"Action"] || [setting objectForKey:@"Choices"] || [setting objectForKey:@"Login"]) {
         return indexPath;
     }
     return nil;
@@ -223,6 +254,7 @@ typedef enum SettingType
     NSIndexPath *fudgedIndexPath = [self fudgedIndexPathForIndexPath:indexPath];
     NSDictionary *setting = [self settingForIndexPath:fudgedIndexPath];
     NSString *action = [setting objectForKey:@"Action"];
+    NSString *login = [setting objectForKey:@"Login"];
     if ([action isEqualToString:@"LogOut"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log Out"
                                                         message:@"Are you sure you want to log out?"
@@ -235,6 +267,8 @@ typedef enum SettingType
         [self performSegueWithIdentifier:@"Login" sender:self];
     } else if ([action isEqualToString:@"ResetData"]) {
         [ApplicationDelegate resetDataStore];
+    } else if (login) {
+        [self performSegueWithIdentifier:@"TagLogin" sender:self];
     } else {
         NSString *key = [setting objectForKey:@"Key"];
         id selectedValue = [[NSUserDefaults standardUserDefaults] objectForKey:key];
@@ -261,7 +295,7 @@ typedef enum SettingType
 
 - (NSInteger)fudgedSectionForSection:(NSInteger)section
 {
-    // Skip either LogInSection or LogOutSection as needed.
+        // Skip either LogInSection or LogOutSection as needed.
     if (IsLoggedIn() || section > 0) {
         return section + 1;
     } else {
@@ -306,7 +340,7 @@ typedef enum SettingType
     NSDictionary *settingSection = [self.sections objectAtIndex:indexPath.section];
     NSArray *listOfSettings = [settingSection objectForKey:@"Settings"];
     return [listOfSettings objectAtIndex:indexPath.row];
-
+    
 }
 
 @end
