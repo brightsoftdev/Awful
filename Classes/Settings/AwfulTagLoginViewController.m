@@ -8,11 +8,13 @@
 
 #import "AwfulTagLoginViewController.h"
 #import "MBProgressHUD.h"
+#import "AwfulInstapaperEngine.h"
 
 @interface AwfulTagLoginViewController ()
 -(void)stop;
 -(void)showStopButton;
 -(void)hideStopButton;
+-(void) instapaperResponse:(int)status;
 @end
 
 @implementation AwfulTagLoginViewController
@@ -46,12 +48,22 @@
     [self setErrorLabel:nil];
     [super viewDidUnload];
 }
+
 - (IBAction)verifyLogin:(id)sender 
 {
     [self.view setUserInteractionEnabled:NO];
     [self showStopButton];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
+    if ([self.service isEqual:@"Instapaper"])
+    {
+        self.networkOperation = [ApplicationDelegate.awfulInstapaperEngine testUsername:self.userField.text
+                                                                           withPassword:self.passwordField.text
+                                                                           onCompletion:^(int status){
+                                                                               [self instapaperResponse:status];
+                                                                           }];
+                                 
+    }
 }
 
 
@@ -74,5 +86,16 @@
 -(void)hideStopButton
 {
     self.navigationItem.rightBarButtonItem = nil;
+}
+
+-(void) instapaperResponse:(int)status
+{
+        /*TODO:Handle various status codes:
+    200: OK
+    403: Invalid username or password.
+    500: The service encountered an error. Please try again later.
+         */
+
+
 }
 @end

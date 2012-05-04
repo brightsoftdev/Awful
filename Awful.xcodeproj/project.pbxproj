@@ -412,6 +412,7 @@
 		50574ECD14CA187D00FD1F92 /* dotdotdot-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 50574ECC14CA187D00FD1F92 /* dotdotdot-clear.png */; };
 		5077DFE81553290400F0B03B /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5077DFE71553290400F0B03B /* SFHFKeychainUtils.m */; };
 		5077DFEB15532F8A00F0B03B /* AwfulTagLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5077DFEA15532F8A00F0B03B /* AwfulTagLoginViewController.m */; };
+		5077E012155482D700F0B03B /* AwfulInstapaperEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5077E011155482D700F0B03B /* AwfulInstapaperEngine.m */; };
 		50A8B96D1541D57E0065F3D9 /* MasterViewButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 50A8B9681541D57E0065F3D9 /* MasterViewButton.png */; };
 		50A8B96E1541D57E0065F3D9 /* multiPageMovement.png in Resources */ = {isa = PBXBuildFile; fileRef = 50A8B9691541D57E0065F3D9 /* multiPageMovement.png */; };
 		50A8B96F1541D57E0065F3D9 /* ReplyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 50A8B96A1541D57E0065F3D9 /* ReplyButton.png */; };
@@ -938,6 +939,8 @@
 		5077DFE71553290400F0B03B /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFHFKeychainUtils.m; path = SFHFKeychainUtils/SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		5077DFE915532F8A00F0B03B /* AwfulTagLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwfulTagLoginViewController.h; sourceTree = "<group>"; };
 		5077DFEA15532F8A00F0B03B /* AwfulTagLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwfulTagLoginViewController.m; sourceTree = "<group>"; };
+		5077E010155482D700F0B03B /* AwfulInstapaperEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AwfulInstapaperEngine.h; path = OtherNetworking/AwfulInstapaperEngine.h; sourceTree = "<group>"; };
+		5077E011155482D700F0B03B /* AwfulInstapaperEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AwfulInstapaperEngine.m; path = OtherNetworking/AwfulInstapaperEngine.m; sourceTree = "<group>"; };
 		50A8B9681541D57E0065F3D9 /* MasterViewButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MasterViewButton.png; path = images/help/MasterViewButton.png; sourceTree = "<group>"; };
 		50A8B9691541D57E0065F3D9 /* multiPageMovement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = multiPageMovement.png; path = images/help/multiPageMovement.png; sourceTree = "<group>"; };
 		50A8B96A1541D57E0065F3D9 /* ReplyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ReplyButton.png; path = images/help/ReplyButton.png; sourceTree = "<group>"; };
@@ -972,6 +975,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5077E00F155482AA00F0B03B /* OtherNetworking */,
 				1190F6CC13BE4EA900B9D271 /* Actions */,
 				1190F6D713BE4EA900B9D271 /* AwfulForumList */,
 				1190F70513BE4EA900B9D271 /* AwfulThreadList */,
@@ -1837,6 +1841,15 @@
 			name = SFHFKeychainUtils;
 			sourceTree = "<group>";
 		};
+		5077E00F155482AA00F0B03B /* OtherNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				5077E010155482D700F0B03B /* AwfulInstapaperEngine.h */,
+				5077E011155482D700F0B03B /* AwfulInstapaperEngine.m */,
+			);
+			name = OtherNetworking;
+			sourceTree = "<group>";
+		};
 		50A8B9671541D52D0065F3D9 /* help */ = {
 			isa = PBXGroup;
 			children = (
@@ -2311,6 +2324,7 @@
 				1C7B87201544D83D00891D41 /* AwfulForumSection.m in Sources */,
 				5077DFE81553290400F0B03B /* SFHFKeychainUtils.m in Sources */,
 				5077DFEB15532F8A00F0B03B /* AwfulTagLoginViewController.m in Sources */,
+				5077E012155482D700F0B03B /* AwfulInstapaperEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

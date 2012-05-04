@@ -12,12 +12,14 @@
 #import "AwfulNetworkEngine.h"
 #import "AwfulSettings.h"
 #import "AwfulLoginController.h"
+#import "AwfulInstapaperEngine.h"
 
 @implementation AwfulAppDelegate
 
 @synthesize window = _window;
 @synthesize splitController = _splitController;
 @synthesize awfulNetworkEngine = _awfulNetworkEngine;
+@synthesize awfulInstapaperEngine = _awfulInstapaperEngine;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
@@ -29,10 +31,10 @@
 {   
     [[AwfulSettings settings] registerDefaults];
     
-    [TestFlight takeOff:@"a9e8d8810060d13a12051820b14a3368_MTIyNTAyMDEyLTAxLTE5IDEwOjAxOjU3LjYwODczNQ"];
+        //[TestFlight takeOff:@"a9e8d8810060d13a12051820b14a3368_MTIyNTAyMDEyLTAxLTE5IDEwOjAxOjU3LjYwODczNQ"];
     
     self.awfulNetworkEngine = [[AwfulNetworkEngine alloc] initWithHostName:@"forums.somethingawful.com" customHeaderFields:nil];
-    
+    self.awfulInstapaperEngine = [[AwfulInstapaperEngine alloc] initWithHostName:@"www.instapaper.com" customHeaderFields:nil];
     NSManagedObjectContext *context = [self managedObjectContext];
     if (context == nil) {
         NSLog(@"no managed object context loaded");

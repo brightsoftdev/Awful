@@ -10,6 +10,7 @@
 
 @class AwfulSplitViewController;
 @class AwfulNetworkEngine;
+@class AwfulInstapaperEngine;
 
 #define ApplicationDelegate ((AwfulAppDelegate *)[UIApplication sharedApplication].delegate)
 
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) IBOutlet UIWindow *window;
 @property (nonatomic, strong) IBOutlet AwfulSplitViewController *splitController;
 @property (nonatomic, strong) AwfulNetworkEngine *awfulNetworkEngine;
+@property (nonatomic, strong) AwfulInstapaperEngine *awfulInstapaperEngine;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
