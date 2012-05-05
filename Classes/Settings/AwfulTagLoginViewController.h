@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MKNetworkKit.h"
+@class AwfulSettingsViewController;
 
 @interface AwfulTagLoginViewController : UIViewController
 {
@@ -15,13 +16,16 @@
 }
 @property (nonatomic, strong) NSString *service;
 @property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *prefKey;
 @property (nonatomic, strong) MKNetworkOperation *networkOperation;
+@property (weak) AwfulSettingsViewController *settingsViewController;
 
 @property (strong, nonatomic) IBOutlet UITextField *userField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UILabel *errorLabel;
 
 - (IBAction)verifyLogin:(id)sender;
+- (IBAction)clearLogin:(id)sender;
 
 
 @end

@@ -17,7 +17,8 @@
 {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:username forKey:@"username"];
-    [params setObject:password forKey:@"password"];
+    if (password)
+        [params setObject:password forKey:@"password"];
     
     MKNetworkOperation *op = [self operationWithPath:@"api/authenticate" 
                                               params:params

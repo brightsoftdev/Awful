@@ -10,6 +10,7 @@
 #import "MBProgressHUD.h"
 #import "AwfulInstapaperEngine.h"
 #import "KeychainWrapper.h"
+#import "AwfulSettingsViewController.h"
 
 @interface AwfulTagLoginViewController ()
 -(void)stop;
@@ -21,10 +22,12 @@
 @implementation AwfulTagLoginViewController
 @synthesize service = _service;
 @synthesize userName = _userName;
+@synthesize prefKey = _prefKey;
 @synthesize networkOperation = _networkOperation;
 @synthesize userField = _userField;
 @synthesize passwordField = _passwordField;
 @synthesize errorLabel = _errorLabel;
+@synthesize settingsViewController = _settingsViewController;
 
 - (void) viewDidLoad
 {
@@ -32,7 +35,13 @@
     self.errorLabel.text = @"";
     self.userField.text = self.userName;
     self.navigationItem.title = self.service;
-    [self.errorLabel sizeToFit];
+    
+    NSError *err;
+    _password = [KeychainWrapper getPasswordForUsername:self.userName andServiceName:self.service error:&err];
+    if (!err)
+    {
+        self.passwordField.text = _password;
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -48,6 +57,24 @@
     [self setPasswordField:nil];
     [self setErrorLabel:nil];
     [super viewDidUnload];
+}
+
+- (IBAction)clearLogin:(id)sender
+{
+    
+    NSError *err;
+    
+    if ([KeychainWrapper deleteItemForUsername:self.userName andServiceName:self.service error:&err])
+    {
+        self.errorLabel.text = [NSString stringWithFormat:@"Unknown error: %@", err.localizedDescription];
+        [self.errorLabel sizeToFit];
+    }
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:self.prefKey];
+    self.userField.text = @"";
+    self.passwordField.text = @"";
+    
+    [self.settingsViewController.tableView reloadData];
+    
 }
 
 - (IBAction)verifyLogin:(id)sender 
@@ -124,6 +151,8 @@
         }
         else
         {
+            [[NSUserDefaults standardUserDefaults] setValue:self.userName forKey:self.prefKey];
+            [self.settingsViewController.tableView reloadData];
             [self.navigationController popViewControllerAnimated:YES];
         }
     }
@@ -131,6 +160,8 @@
     {
         self.errorLabel.text = [NSString stringWithFormat:@"Unknown error: %d", status];
     }
+    
+    [self.errorLabel sizeToFit];
 }
 
 @end

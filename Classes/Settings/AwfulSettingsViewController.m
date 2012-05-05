@@ -67,8 +67,11 @@
         
         
         NSString *key = [setting objectForKey:@"Key"];
+        atl.prefKey = key;
         id selectedValue = [[NSUserDefaults standardUserDefaults] objectForKey:key];
         atl.userName = selectedValue;
+        
+        atl.settingsViewController = self;
 
     }
 }
