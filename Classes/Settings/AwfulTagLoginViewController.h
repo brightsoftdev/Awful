@@ -10,7 +10,9 @@
 #import "MKNetworkKit.h"
 
 @interface AwfulTagLoginViewController : UIViewController
-
+{
+    NSString *_password;
+}
 @property (nonatomic, strong) NSString *service;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) MKNetworkOperation *networkOperation;
