@@ -911,11 +911,11 @@
             </objects>
             <point key="canvasLocation" x="1219" y="-266"/>
         </scene>
-        <!--Awful Tag Login View Controller - Login Info-->
+        <!--Awful Send To Login View Controller - Login Info-->
         <scene sceneID="Xln-9y-0jt">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hjt-FP-udE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Login Info" modalPresentationStyle="pageSheet" id="eFw-fJ-ssk" customClass="AwfulTagLoginViewController" sceneMemberID="viewController">
+                <viewController title="Login Info" modalPresentationStyle="pageSheet" id="eFw-fJ-ssk" customClass="AwfulSendToLoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NpX-Ha-yqO">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1105,16 +1105,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AwfulTableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="refresh"/>
-            </relationships>
-        </class>
-        <class className="AwfulTagLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AwfulTagLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clearLogin:"/>
-                <relationship kind="action" name="verifyLogin:"/>
-                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="userField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="AwfulThreadCell" superclassName="UITableViewCell">

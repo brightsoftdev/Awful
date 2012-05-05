@@ -10,7 +10,7 @@
 #import "MKNetworkKit.h"
 @class AwfulSettingsViewController;
 
-@interface AwfulTagLoginViewController : UIViewController
+@interface AwfulSendToLoginViewController : UIViewController
 {
     NSString *_password;
 }

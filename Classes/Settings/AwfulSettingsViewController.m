@@ -14,7 +14,7 @@
 #import "AwfulLoginController.h"
 #import "AwfulNetworkEngine.h"
 #import "AwfulSettingsChoiceViewController.h"
-#import "AwfulTagLoginViewController.h"
+#import "AwfulSendToLoginViewController.h"
 
 @interface AwfulSettingsViewController ()
 
@@ -55,7 +55,7 @@
         [split.popoverController dismissPopoverAnimated:NO];
     }
     else if ([[segue identifier] isEqualToString:@"TagLogin"]) {
-        AwfulTagLoginViewController *atl = (AwfulTagLoginViewController *) segue.destinationViewController;
+        AwfulSendToLoginViewController *atl = (AwfulSendToLoginViewController *) segue.destinationViewController;
         
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];

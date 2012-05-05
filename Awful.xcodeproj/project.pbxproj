@@ -410,7 +410,7 @@
 		5040D23E14D0BC5D009E73F7 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 5040D23C14D0BC59009E73F7 /* back.png */; };
 		5040D23F14D0BC5D009E73F7 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5040D23D14D0BC5B009E73F7 /* back@2x.png */; };
 		50574ECD14CA187D00FD1F92 /* dotdotdot-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 50574ECC14CA187D00FD1F92 /* dotdotdot-clear.png */; };
-		5077DFEB15532F8A00F0B03B /* AwfulTagLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5077DFEA15532F8A00F0B03B /* AwfulTagLoginViewController.m */; };
+		5077DFEB15532F8A00F0B03B /* AwfulSendToLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5077DFEA15532F8A00F0B03B /* AwfulSendToLoginViewController.m */; };
 		5077E012155482D700F0B03B /* AwfulInstapaperEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5077E011155482D700F0B03B /* AwfulInstapaperEngine.m */; };
 		507C90931554E00300786A9E /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 507C90921554E00300786A9E /* KeychainWrapper.m */; };
 		50A8B96D1541D57E0065F3D9 /* MasterViewButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 50A8B9681541D57E0065F3D9 /* MasterViewButton.png */; };
@@ -935,8 +935,8 @@
 		5040D23C14D0BC59009E73F7 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = images/back.png; sourceTree = "<group>"; };
 		5040D23D14D0BC5B009E73F7 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back@2x.png"; path = "images/back@2x.png"; sourceTree = "<group>"; };
 		50574ECC14CA187D00FD1F92 /* dotdotdot-clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dotdotdot-clear.png"; path = "images/dotdotdot-clear.png"; sourceTree = "<group>"; };
-		5077DFE915532F8A00F0B03B /* AwfulTagLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwfulTagLoginViewController.h; sourceTree = "<group>"; };
-		5077DFEA15532F8A00F0B03B /* AwfulTagLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwfulTagLoginViewController.m; sourceTree = "<group>"; };
+		5077DFE915532F8A00F0B03B /* AwfulSendToLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = AwfulSendToLoginViewController.h; sourceTree = "<group>"; };
+		5077DFEA15532F8A00F0B03B /* AwfulSendToLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwfulSendToLoginViewController.m; sourceTree = "<group>"; };
 		5077E010155482D700F0B03B /* AwfulInstapaperEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AwfulInstapaperEngine.h; path = OtherNetworking/AwfulInstapaperEngine.h; sourceTree = "<group>"; };
 		5077E011155482D700F0B03B /* AwfulInstapaperEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AwfulInstapaperEngine.m; path = OtherNetworking/AwfulInstapaperEngine.m; sourceTree = "<group>"; };
 		507C90911554E00300786A9E /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainWrapper.h; path = KeychainWrapper/KeychainWrapper.h; sourceTree = "<group>"; };
@@ -1695,8 +1695,8 @@
 				11FDA295151018600014FDCD /* AwfulSettingsViewController.m */,
 				1C277CA31543554700CD2CCE /* AwfulSettingsChoiceViewController.h */,
 				1C277CA41543554700CD2CCE /* AwfulSettingsChoiceViewController.m */,
-				5077DFE915532F8A00F0B03B /* AwfulTagLoginViewController.h */,
-				5077DFEA15532F8A00F0B03B /* AwfulTagLoginViewController.m */,
+				5077DFE915532F8A00F0B03B /* AwfulSendToLoginViewController.h */,
+				5077DFEA15532F8A00F0B03B /* AwfulSendToLoginViewController.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -2322,7 +2322,7 @@
 				1C277CA51543554700CD2CCE /* AwfulSettingsChoiceViewController.m in Sources */,
 				1CF2C5061543B51200E327F5 /* AwfulFavoritesViewController.m in Sources */,
 				1C7B87201544D83D00891D41 /* AwfulForumSection.m in Sources */,
-				5077DFEB15532F8A00F0B03B /* AwfulTagLoginViewController.m in Sources */,
+				5077DFEB15532F8A00F0B03B /* AwfulSendToLoginViewController.m in Sources */,
 				5077E012155482D700F0B03B /* AwfulInstapaperEngine.m in Sources */,
 				507C90931554E00300786A9E /* KeychainWrapper.m in Sources */,
 			);

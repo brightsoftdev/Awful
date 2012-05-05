@@ -6,20 +6,20 @@
     //  Copyright (c) 2012 Regular Berry Software LLC. All rights reserved.
     //
 
-#import "AwfulTagLoginViewController.h"
+#import "AwfulSendToLoginViewController.h"
 #import "MBProgressHUD.h"
 #import "AwfulInstapaperEngine.h"
 #import "KeychainWrapper.h"
 #import "AwfulSettingsViewController.h"
 
-@interface AwfulTagLoginViewController ()
+@interface AwfulSendToLoginViewController ()
 -(void)stop;
 -(void)showStopButton;
 -(void)hideStopButton;
 -(void) instapaperResponse:(int)status;
 @end
 
-@implementation AwfulTagLoginViewController
+@implementation AwfulSendToLoginViewController
 @synthesize service = _service;
 @synthesize userName = _userName;
 @synthesize prefKey = _prefKey;
