@@ -1,0 +1,11 @@
+    //File: KeychainWrapper.h
+    //From http://stackoverflow.com/questions/7941986/ios-5-0-keychain-access
+#import <UIKit/UIKit.h>
+
+@interface KeychainWrapper : NSObject {}
+
++ (NSString *) getPasswordForUsername: (NSString *) username andServiceName: (NSString *) serviceName error: (NSError **) error;
++ (BOOL) storeUsername: (NSString *) username andPassword: (NSString *) password forServiceName: (NSString *) serviceName updateExisting: (BOOL) updateExisting error: (NSError **) error;
++ (BOOL) deleteItemForUsername: (NSString *) username andServiceName: (NSString *) serviceName error: (NSError **) error;
+
+@end
